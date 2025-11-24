@@ -1,5 +1,5 @@
 import { clearStorage, extractStorageData, injectStorageData } from "@background/services/storageData.service";
-import { StorageData } from "@shared/types";
+import type { StorageData } from "@shared/types";
 import { ExtensionError } from "@shared/utils/errorHandling";
 
 export class StorageHandler {

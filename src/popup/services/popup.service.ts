@@ -1,7 +1,7 @@
 import { storedSessionDefaultValue } from "@popup/utils/defaultValue";
 import { MESSAGE_ACTIONS } from "@shared/constants/messages";
 import { STORAGE_KEYS } from "@shared/constants/storageKeys";
-import { ExtensionStorage, PopupState, SessionData, StoredSession } from "@shared/types";
+import type { ExtensionStorage, PopupState, SessionData, StoredSession } from "@shared/types";
 import { getDomainFromUrl } from "@shared/utils/domain";
 import { ExtensionError, handleError } from "@shared/utils/errorHandling";
 import { generateId } from "@shared/utils/idGenerator";

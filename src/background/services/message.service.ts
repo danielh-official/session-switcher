@@ -1,7 +1,7 @@
 import { SessionHandler } from "@background/handlers/session.handler";
 import { MESSAGE_ACTIONS } from "@shared/constants/messages";
 import { REQUIRED_PERMISSIONS } from "@shared/constants/requiredPermission";
-import { MessageType, SendResponseType, StoredSession } from "@shared/types";
+import type { MessageType, SendResponseType, StoredSession } from "@shared/types";
 import { handleError } from "@shared/utils/errorHandling";
 
 export class MessageService {

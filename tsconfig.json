@@ -11,7 +11,8 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "resolveJsonModule": true,
-    "types": ["chrome"],
+    "verbatimModuleSyntax": true,
+    "types": ["chrome", "svelte"],
     "paths": {
       "@background/*": ["./src/background/*"],
       "@popup/*": ["./src/popup/*"],

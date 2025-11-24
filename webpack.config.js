@@ -1,4 +1,6 @@
 const path = require("path");
+const sveltePreprocess = require("svelte-preprocess");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
   mode: "production",
@@ -12,14 +14,39 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: [".ts", ".js"],
+    alias: {
+      svelte: path.resolve("node_modules", "svelte"),
+    },
+    extensions: [".mjs", ".js", ".ts", ".svelte"],
+    mainFields: ["svelte", "browser", "module", "main"],
+    conditionNames: ["svelte", "browser", "import"],
   },
   module: {
     rules: [
       {
+        test: /\.svelte$/,
+        use: {
+          loader: "svelte-loader",
+          options: {
+            compilerOptions: {
+              dev: false,
+            },
+            emitCss: false,
+            hotReload: false,
+            preprocess: sveltePreprocess(),
+          },
+        },
+      },
+      {
         test: /\.ts$/,
         use: "ts-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /node_modules\/svelte\/.*\.mjs$/,
+        resolve: {
+          fullySpecified: false,
+        },
       },
     ],
   },
@@ -27,4 +54,5 @@ module.exports = {
   optimization: {
     minimize: false, // Keep readable for debugging
   },
+  plugins: [new BundleAnalyzerPlugin()],
 };

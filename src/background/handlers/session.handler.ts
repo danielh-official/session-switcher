@@ -1,4 +1,4 @@
-import { SessionData, StoredSession } from "@shared/types";
+import type { SessionData, StoredSession } from "@shared/types";
 import { ExtensionError } from "@shared/utils/errorHandling";
 import { CookieHandler } from "./cookie.handler";
 import { StorageHandler } from "./storage.handler";

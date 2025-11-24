@@ -90,10 +90,12 @@ body {
   visibility: visible;
 }
 
-.info-tooltip h4 {
+.info-tooltip h4,
+.info-tooltip .tooltip-title {
   color: #415bd1;
   margin-bottom: 8px;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .info-tooltip p {

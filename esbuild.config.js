@@ -1,4 +1,6 @@
 import { build } from "esbuild";
+import sveltePlugin from "esbuild-svelte";
+import { sveltePreprocess } from "svelte-preprocess";
 
 await build({
   entryPoints: ["src/background/index.ts"],
@@ -19,6 +21,17 @@ await build({
   platform: "browser",
   target: "firefox109",
   format: "iife",
-  minify: false,
+  minify: true,
   sourcemap: false,
+  loader: {
+    ".css": "css",
+  },
+  plugins: [
+    sveltePlugin({
+      preprocess: sveltePreprocess(),
+      compilerOptions: {
+        css: "injected",
+      },
+    }),
+  ],
 });

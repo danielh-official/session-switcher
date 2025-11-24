@@ -1,4 +1,4 @@
-import { StorageData } from "@shared/types";
+import type { StorageData } from "@shared/types";
 
 export function extractStorageData(): StorageData {
   try {
